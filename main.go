@@ -2,6 +2,7 @@ package main
 
 import (
 	"archive/zip"
+	"flag"
 	"fmt"
 	"io"
 	"os"
@@ -11,9 +12,16 @@ import (
 )
 
 func main() {
-	input := "./package.zip"
+	input := flag.String("input", "package.zip", "a package.zip file")
 
-	zipReader, err := zip.OpenReader(input)
+	flag.Parse()
+
+	if _, err := os.Stat(*input); os.IsNotExist(err) {
+		println("Error: FIle \"" + *input + "\" doesn't exist")
+		return
+	}
+
+	zipReader, err := zip.OpenReader(*input)
 	if err != nil {
 		panic(err)
 	}
