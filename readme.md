@@ -5,6 +5,12 @@ Extract discord's package.zip messages to a readable format. (currently outputs 
 ## Usage
 ```bash
 go run . --input package.zip
+
+go build .
+./read_discord_go --input package.zip
+
+# use air (https://github.com/air-verse/air) for hot reloading
+air
 ```
 
 ## Output
