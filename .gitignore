@@ -1,0 +1,8 @@
+# Ignore package files
+*.zip
+
+# Package output
+out
+
+# Air's temp folder
+tmp
